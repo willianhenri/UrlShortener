@@ -1,0 +1,104 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Encurtador de URL</title>
+    <style>
+    
+        body { font-family: sans-serif; max-width: 600px; margin: 2em auto; padding: 1em; border: 1px solid #ccc; border-radius: 5px; }
+        label { display: block; margin-bottom: 0.5em; font-weight: bold; }
+        input[type="url"] { width: calc(100% - 22px); padding: 0.5em; margin-bottom: 1em; border: 1px solid #ccc; border-radius: 3px; }
+        button { padding: 0.7em 1.5em; background-color: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+        #result { margin-top: 1.5em; padding: 1em; background-color: #e9ecef; border: 1px solid #ced4da; border-radius: 3px; word-wrap: break-word; /* Quebra de linha para URLs longas */ }
+        #result.error { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
+        #result.success { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
+        #result a { color: #0056b3; text-decoration: none; }
+        #result a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<h1>Encurtador de URL Simples</h1>
+
+<form id="shorten-form">
+    <label for="originalUrl">URL Original:</label>
+    <input type="url" id="originalUrl" name="originalUrl" required placeholder="https://exemplo.com/url-muito/longa">
+
+    <button type="submit">Encurtar</button>
+</form>
+
+<div id="result" style="display: none;">
+</div>
+
+<script>
+
+    const form = document.getElementById('shorten-form');
+    const originalUrlInput = document.getElementById('originalUrl');
+    const resultDiv = document.getElementById('result');
+
+    form.addEventListener('submit', async (event) => {
+        event.preventDefault(); 
+
+        const originalUrl = originalUrlInput.value;
+        resultDiv.style.display = 'none';
+        resultDiv.className = '';
+        resultDiv.textContent = 'Processando...'; 
+
+        if (!originalUrl) {
+            resultDiv.textContent = 'Por favor, insira uma URL.';
+            resultDiv.className = 'error';
+            resultDiv.style.display = 'block';
+            return;
+        }
+
+        try {
+         
+            const response = await fetch('/api/shortener', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+         
+                body: JSON.stringify({ originalUrl: originalUrl })
+            });
+  
+
+            if (response.ok) {
+                const data = await response.json(); 
+                resultDiv.className = 'success';
+            
+                resultDiv.innerHTML = `URL Curta: <a href="${data.shortUrl}" target="_blank">${data.shortUrl}</a>`;
+                originalUrlInput.value = ''; 
+            } else {
+      
+                let errorMessage = `Erro ${response.status}: ${response.statusText}`;
+                try {
+                    
+                    const errorData = await response.json();
+                    if(errorData && errorData.message) {
+                        errorMessage = errorData.message;
+                    } else if (errorData) {
+                        errorMessage = JSON.stringify(errorData); 
+                    }
+                } catch(e) { }
+
+                resultDiv.textContent = `Falha ao encurtar: ${errorMessage}`;
+                resultDiv.className = 'error';
+            }
+
+        } catch (error) {
+      
+            console.error("Erro na requisição:", error);
+            resultDiv.textContent = 'Erro de rede ao tentar se comunicar com o servidor.';
+            resultDiv.className = 'error';
+        } finally {
+            resultDiv.style.display = 'block'; 
+        }
+    });
+</script>
+
+</body>
+</html>

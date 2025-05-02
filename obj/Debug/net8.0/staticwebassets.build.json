@@ -1,0 +1,125 @@
+{
+  "Version": 1,
+  "Hash": "44tbTAMsu4O9L+5I+3adrWxmUyCVj9nat7VbaBaLiMA=",
+  "Source": "UrlShortener.Api",
+  "BasePath": "_content/UrlShortener.Api",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "UrlShortener.Api\\wwwroot",
+      "Source": "UrlShortener.Api",
+      "ContentRoot": "C:\\Users\\wh341\\source\\repos\\UrlShortener.Api\\wwwroot\\",
+      "BasePath": "_content/UrlShortener.Api",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\wh341\\source\\repos\\UrlShortener.Api\\wwwroot\\index.html",
+      "SourceId": "UrlShortener.Api",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\wh341\\source\\repos\\UrlShortener.Api\\wwwroot\\",
+      "BasePath": "_content/UrlShortener.Api",
+      "RelativePath": "index#[.{fingerprint}]?.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "n6dx84tbpq",
+      "Integrity": "/+hhpDN9HcpTYJWjJ1gBYI+3lZ9zQ/7UziC5j0B6Pn0=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\index.html"
+    }
+  ],
+  "Endpoints": [
+    {
+      "Route": "index.html",
+      "AssetFile": "C:\\Users\\wh341\\source\\repos\\UrlShortener.Api\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4020"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/+hhpDN9HcpTYJWjJ1gBYI+3lZ9zQ/7UziC5j0B6Pn0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 02 May 2025 14:18:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-/+hhpDN9HcpTYJWjJ1gBYI+3lZ9zQ/7UziC5j0B6Pn0="
+        }
+      ]
+    },
+    {
+      "Route": "index.n6dx84tbpq.html",
+      "AssetFile": "C:\\Users\\wh341\\source\\repos\\UrlShortener.Api\\wwwroot\\index.html",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "4020"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/html"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"/+hhpDN9HcpTYJWjJ1gBYI+3lZ9zQ/7UziC5j0B6Pn0=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Fri, 02 May 2025 14:18:30 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "n6dx84tbpq"
+        },
+        {
+          "Name": "label",
+          "Value": "index.html"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-/+hhpDN9HcpTYJWjJ1gBYI+3lZ9zQ/7UziC5j0B6Pn0="
+        }
+      ]
+    }
+  ]
+}
