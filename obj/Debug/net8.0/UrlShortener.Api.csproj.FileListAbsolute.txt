@@ -136,3 +136,6 @@ C:\Users\wh341\source\repos\UrlShortener.Api\obj\Debug\net8.0\UrlShortener.Api.p
 C:\Users\wh341\source\repos\UrlShortener.Api\obj\Debug\net8.0\UrlShortener.Api.genruntimeconfig.cache
 C:\Users\wh341\source\repos\UrlShortener.Api\obj\Debug\net8.0\ref\UrlShortener.Api.dll
 C:\Users\wh341\source\repos\UrlShortener.Api\bin\Debug\net8.0\UrlShortener.Api.staticwebassets.runtime.json
+C:\Users\wh341\source\repos\UrlShortener.Api\bin\Debug\net8.0\Npgsql.dll
+C:\Users\wh341\source\repos\UrlShortener.Api\bin\Debug\net8.0\Npgsql.EntityFrameworkCore.PostgreSQL.dll
+C:\Users\wh341\source\repos\UrlShortener.Api\obj\Debug\net8.0\UrlShortener.Api.sourcelink.json
