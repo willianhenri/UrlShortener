@@ -11,3 +11,10 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+# Artifacts folders
+bin/
+obj/
+
+# User-specific files (examples)
+*.user
+*.suo
