@@ -11,33 +11,33 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddHttpContextAccessor();
 
-// var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-// Console.WriteLine($"--- DEBUG: Connection String Lido = '{connectionString ?? "VALOR NULO OU VAZIO"}' ---");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+Console.WriteLine($"--- DEBUG: Connection String Lido = '{connectionString ?? "VALOR NULO OU VAZIO"}' ---");
 
- // builder.Services.AddDbContext<AppDbContext>(options =>
-     // options.UseNpgsql(connectionString));
-//
-// builder.Services.AddScoped<IUrlShorteningService, UrlShorteningService>();
+ builder.Services.AddDbContext<AppDbContext>(options =>
+     options.UseNpgsql(connectionString));
+
+builder.Services.AddScoped<IUrlShorteningService, UrlShorteningService>();
  var app = builder.Build();
 
-//
-// try
-// {
-//     
-//     using (var scope = app.Services.CreateScope())
-//     {
-//         var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-//         Console.WriteLine("Applying database migrations...");
-//     
-//         dbContext.Database.Migrate();
-//         Console.WriteLine("Database migrations applied successfully.");
-//     }
-// }
-// catch (Exception ex)
-// {
-//     Console.WriteLine($"An error occurred while applying migrations: {ex.Message}");
-//   
-// }
+
+try
+{
+    
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+        Console.WriteLine("Applying database migrations...");
+    
+        dbContext.Database.Migrate();
+        Console.WriteLine("Database migrations applied successfully.");
+    }
+}
+catch (Exception ex)
+{
+    Console.WriteLine($"An error occurred while applying migrations: {ex.Message}");
+  
+}
 
 
 // Configure the HTTP request pipeline.
